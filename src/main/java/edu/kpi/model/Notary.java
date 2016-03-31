@@ -7,28 +7,27 @@ import java.util.List;
  * Created by Abrasha on 31-Mar-16.
  */
 @Entity
-public class Notarius {
+public class Notary {
 
     private int id;
-    private NotariusType notariusType;
+    private NotaryType notaryType;
     private Town town;
     private String organisation;
     private String info;
     private List<Registry> registries;
 
-    public Notarius(NotariusType notariusType, Town town, String organisation, String info) {
-        this.notariusType = notariusType;
+    public Notary(NotaryType notaryType, Town town, String organisation, String info) {
+        this.notaryType = notaryType;
         this.town = town;
         this.organisation = organisation;
         this.info = info;
     }
 
-    public Notarius() {
+    public Notary() {
 
     }
 
-    //@OneToMany
-    @Transient // TODO
+    @OneToMany(mappedBy = "notary")
     public List<Registry> getRegistries() {
         return registries;
     }
@@ -48,13 +47,13 @@ public class Notarius {
     }
 
     @OneToOne
-    public NotariusType getNotariusType() {
+    public NotaryType getNotaryType() {
 
-        return notariusType;
+        return notaryType;
     }
 
-    public void setNotariusType(NotariusType notariusType) {
-        this.notariusType = notariusType;
+    public void setNotaryType(NotaryType notaryType) {
+        this.notaryType = notaryType;
     }
 
     @ManyToOne

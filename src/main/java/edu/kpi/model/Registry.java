@@ -16,7 +16,7 @@ public class Registry {
     private String series;
     private Date date;
     private Date irrevocability; // null if not irrevocable
-    private Notarius notarius;
+    private Notary notary;
     private Person principal;
     private List<Person> confidants;
     private Property property;
@@ -80,13 +80,13 @@ public class Registry {
     }
 
 
-    @ManyToOne
-    public Notarius getNotarius() {
-        return notarius;
+    @ManyToOne(fetch = FetchType.LAZY)
+    public Notary getNotary() {
+        return notary;
     }
 
-    public void setNotarius(Notarius notarius) {
-        this.notarius = notarius;
+    public void setNotary(Notary notary) {
+        this.notary = notary;
     }
 
     // TODO

@@ -8,17 +8,17 @@ import javax.persistence.Id;
  * Created by Abrasha on 31-Mar-16.
  */
 @Entity
-public class NotariusType {
+public class NotaryType {
 
     private int id;
     private String typeName;
 
-    public NotariusType(String typeName) {
+    public NotaryType(String typeName) {
 
         this.typeName = typeName;
     }
 
-    public NotariusType() {
+    public NotaryType() {
     }
 
     @Id

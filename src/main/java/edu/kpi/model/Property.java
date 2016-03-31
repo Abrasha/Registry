@@ -12,9 +12,9 @@ import javax.persistence.OneToOne;
 public class Property {
 
     private int id;
-    private PropertyType propertyType;
     private int serialNumber;
     private int registrationNumber;
+    private PropertyType propertyType;
     private String description;
 
     public Property(PropertyType propertyType, int serialNumber, int registrationNumber, String description) {
@@ -25,7 +25,6 @@ public class Property {
     }
 
     public Property() {
-
     }
 
     @Id

@@ -22,8 +22,8 @@
 
         <mapping class="edu.kpi.model.AccountType"/>
         <mapping class="edu.kpi.model.Confident"/>
-        <mapping class="edu.kpi.model.Notarius"/>
-        <mapping class="edu.kpi.model.NotariusType"/>
+        <mapping class="edu.kpi.model.Notary"/>
+        <mapping class="edu.kpi.model.NotaryType"/>
         <mapping class="edu.kpi.model.Person"/>
         <mapping class="edu.kpi.model.PersonType"/>
         <mapping class="edu.kpi.model.Property"/>

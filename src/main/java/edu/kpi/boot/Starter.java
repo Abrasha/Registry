@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
  */
 public class Starter {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         SessionFactory factory = new Configuration()
                 .configure("/hibernate/hibernate.cfg.xml")
@@ -20,6 +20,8 @@ public class Starter {
         session.close();
         factory.close();
 
+
+        Thread.sleep(1000000);
 
     }
 
