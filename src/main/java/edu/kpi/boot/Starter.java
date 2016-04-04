@@ -1,28 +1,36 @@
 package edu.kpi.boot;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import edu.kpi.model.AccountType;
+import edu.kpi.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Created by Abrasha on 31-Mar-16.
- */
+
 public class Starter {
 
-    public static void main(String[] args) throws InterruptedException {
-
-        SessionFactory factory = new Configuration()
-                .configure("/hibernate/hibernate.cfg.xml")
-                .buildSessionFactory();
-
-        Session session = factory.openSession();
-
-        session.close();
-        factory.close();
+    @Autowired
+    UserService userService;
 
 
-        Thread.sleep(1000000);
+    public static void main(String[] args) {
 
+
+        Starter starter = new Starter();
+        starter.test();
+
+    }
+
+    public void test() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("/application-context.xml");
+
+        UserService service = context.getBean(UserService.class);
+
+        AccountType type = new AccountType("MASTER");
+        service.addAccountType(type);
+        User user = new User("login", "pass", type);
+        service.addUser(user);
+        System.out.println(user.getId());
     }
 
 }
