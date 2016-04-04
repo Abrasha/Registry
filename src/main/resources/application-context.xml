@@ -37,9 +37,9 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7113148"/>
-        <property name="username" value="sql7113148"/>
-        <property name="password" value="qjXal1u2jn"/>
+        <property name="url" value="jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7116905"/>
+        <property name="username" value="sql7116905"/>
+        <property name="password" value="Vly23SyCug"/>
     </bean>
 
     <tx:annotation-driven/>
