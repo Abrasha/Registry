@@ -1,7 +1,7 @@
 package edu.kpi.boot;
 
-import edu.kpi.model.AccountType;
-import edu.kpi.model.User;
+import edu.kpi.model.*;
+import edu.kpi.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,6 +31,11 @@ public class Starter {
         User user = new User("login", "pass", type);
         service.addUser(user);
         System.out.println(user.getId());
+        Region region =new Region("Dnipropetrovska oblast");
+        service.addRegion(region);
+        Town town = new Town("Krivy Rig",region);
+        service.addTown(town);
+        System.out.println(town.getId()+" " +town.getName());
     }
 
 }
