@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Person {
 
-    private int id;
+    private Integer id;
     private String code; // TODO
     private PersonType personType;
     private String name;
@@ -30,12 +30,12 @@ public class Person {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
 
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
