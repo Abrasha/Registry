@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Notary {
 
-    private int id;
+    private Integer id;
     private NotaryType notaryType;
     private Town town;
     private String organisation;
@@ -38,11 +38,11 @@ public class Notary {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

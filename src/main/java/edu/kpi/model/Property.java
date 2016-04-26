@@ -11,9 +11,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Property {
 
-    private int id;
-    private int serialNumber;
-    private int registrationNumber;
+    private Integer id;
+    private Integer serialNumber;
+    private Integer registrationNumber;
     private PropertyType propertyType;
     private String description;
 
@@ -29,11 +29,11 @@ public class Property {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -46,19 +46,19 @@ public class Property {
         this.propertyType = propertyType;
     }
 
-    public int getSerialNumber() {
+    public Integer getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(int serialNumber) {
+    public void setSerialNumber(Integer serialNumber) {
         this.serialNumber = serialNumber;
     }
 
-    public int getRegistrationNumber() {
+    public Integer getRegistrationNumber() {
         return registrationNumber;
     }
 
-    public void setRegistrationNumber(int registrationNumber) {
+    public void setRegistrationNumber(Integer registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
 

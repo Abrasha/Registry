@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 public class NotaryType {
 
-    private int id;
+    private Integer id;
     private String typeName;
 
     public NotaryType(String typeName) {
@@ -23,11 +23,11 @@ public class NotaryType {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
