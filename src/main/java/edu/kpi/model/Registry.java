@@ -10,9 +10,9 @@ import java.util.List;
 @Entity
 public class Registry {
 
-    private Integer id;
-    private Integer number; // TODO
-    private Integer numberInActionList;
+    private int id;
+    private int number; // TODO
+    private int numberInActionList;
     private String series;
     private Date date;
     private Date irrevocability; // null if not irrevocable
@@ -24,29 +24,29 @@ public class Registry {
 
     @Id
     @GeneratedValue
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Column
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
     @Column
-    public Integer getNumberInActionList() {
+    public int getNumberInActionList() {
         return numberInActionList;
     }
 
-    public void setNumberInActionList(Integer numberInActionList) {
+    public void setNumberInActionList(int numberInActionList) {
         this.numberInActionList = numberInActionList;
     }
 

@@ -1,9 +1,6 @@
 package edu.kpi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * Created by Abrasha on 31-Mar-16.
@@ -11,9 +8,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class Property {
 
-    private Integer id;
-    private Integer serialNumber;
-    private Integer registrationNumber;
+    public enum PropertyType {
+        TRANSPORT, OTHER
+    }
+
+    private int id;
+    private int serialNumber;
+    private int registrationNumber;
     private PropertyType propertyType;
     private String description;
 
@@ -29,15 +30,15 @@ public class Property {
 
     @Id
     @GeneratedValue
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @OneToOne
+    @Enumerated
     public PropertyType getPropertyType() {
         return propertyType;
     }
@@ -46,19 +47,19 @@ public class Property {
         this.propertyType = propertyType;
     }
 
-    public Integer getSerialNumber() {
+    public int getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(Integer serialNumber) {
+    public void setSerialNumber(int serialNumber) {
         this.serialNumber = serialNumber;
     }
 
-    public Integer getRegistrationNumber() {
+    public int getRegistrationNumber() {
         return registrationNumber;
     }
 
-    public void setRegistrationNumber(Integer registrationNumber) {
+    public void setRegistrationNumber(int registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
 

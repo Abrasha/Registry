@@ -9,7 +9,11 @@ import java.util.List;
 @Entity
 public class Notary {
 
-    private Integer id;
+    public enum NotaryType {
+        STATE, PRIVATE
+    }
+
+    private int id;
     private NotaryType notaryType;
     private Town town;
     private String organisation;
@@ -38,17 +42,16 @@ public class Notary {
 
     @Id
     @GeneratedValue
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @OneToOne
+    @Enumerated
     public NotaryType getNotaryType() {
-
         return notaryType;
     }
 

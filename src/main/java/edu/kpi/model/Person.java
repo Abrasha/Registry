@@ -1,17 +1,16 @@
 package edu.kpi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * Created by Abrasha on 31-Mar-16.
  */
 @Entity
 public class Person {
-
-    private Integer id;
+public enum PersonType{
+    INDIVIDUAL, ENTITY
+}
+    private int id;
     private String code; // TODO
     private PersonType personType;
     private String name;
@@ -30,12 +29,12 @@ public class Person {
 
     @Id
     @GeneratedValue
-    public Integer getId() {
+    public int getId() {
 
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -47,7 +46,7 @@ public class Person {
         this.code = code;
     }
 
-    @OneToOne
+    @Enumerated
     public PersonType getPersonType() {
         return personType;
     }

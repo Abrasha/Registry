@@ -9,8 +9,11 @@ import javax.persistence.*;
 @Entity
 @Table
 public class User {
+    public enum AccountType {
+        ADMIN, USER
+    }
 
-    private Integer id;
+    private int id;
     private String login;
     private String password;
     private AccountType accountType;
@@ -26,11 +29,11 @@ public class User {
 
     @Id
     @GeneratedValue
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -48,11 +51,21 @@ public class User {
         return password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", accountType=" + accountType +
+                '}';
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    @OneToOne
+    @Enumerated
     public AccountType getAccountType() {
         return accountType;
     }
