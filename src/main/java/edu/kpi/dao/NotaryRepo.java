@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package edu.kpi.dao;
-import edu.kpi.model.Property;
+
+import edu.kpi.model.Notary;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
  * @author Hmelmin
  */
 @Repository
-public interface PropertyDAO extends JpaRepository<Property, Integer>{
-    
+public interface NotaryRepo extends JpaRepository<Notary, Integer> {
+
 }
