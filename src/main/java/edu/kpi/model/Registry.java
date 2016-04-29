@@ -1,6 +1,7 @@
 package edu.kpi.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -10,11 +11,11 @@ import java.util.List;
 @Entity
 public class Registry {
 
-    private int id;
-    private int number; // TODO
-    private int numberInActionList;
+    private Integer id;
+    private Integer number; // TODO
+    private Integer numberInActionList;
     private String series;
-    private Date date;
+    private LocalDate date;
     private Date irrevocability; // null if not irrevocable
     private Notary notary;
     private Person principal;
@@ -24,29 +25,29 @@ public class Registry {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Column
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
     @Column
-    public int getNumberInActionList() {
+    public Integer getNumberInActionList() {
         return numberInActionList;
     }
 
-    public void setNumberInActionList(int numberInActionList) {
+    public void setNumberInActionList(Integer numberInActionList) {
         this.numberInActionList = numberInActionList;
     }
 
@@ -60,17 +61,15 @@ public class Registry {
     }
 
     @Column
-    @Temporal(value = TemporalType.DATE)
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
     @Column
-    @Temporal(TemporalType.DATE)
     public Date getIrrevocability() {
         return irrevocability;
     }

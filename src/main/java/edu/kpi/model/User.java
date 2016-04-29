@@ -13,7 +13,7 @@ public class User {
         ADMIN, USER
     }
 
-    private int id;
+    private Integer id;
     private String login;
     private String password;
     private AccountType accountType;
@@ -29,15 +29,15 @@ public class User {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    @Column
+    @Column(unique = true, nullable = false)
     public String getLogin() {
         return login;
     }
@@ -46,7 +46,8 @@ public class User {
         this.login = login;
     }
 
-    @Column
+
+    @Column(nullable = false)
     public String getPassword() {
         return password;
     }
@@ -65,7 +66,7 @@ public class User {
         this.password = password;
     }
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     public AccountType getAccountType() {
         return accountType;
     }

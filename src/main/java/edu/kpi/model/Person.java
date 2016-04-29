@@ -7,10 +7,12 @@ import javax.persistence.*;
  */
 @Entity
 public class Person {
-public enum PersonType{
-    INDIVIDUAL, ENTITY
-}
-    private int id;
+
+    public enum PersonType {
+        INDIVIDUAL, ENTITY
+    }
+
+    private Integer id;
     private String code; // TODO
     private PersonType personType;
     private String name;
@@ -29,12 +31,12 @@ public enum PersonType{
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
 
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -46,7 +48,7 @@ public enum PersonType{
         this.code = code;
     }
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     public PersonType getPersonType() {
         return personType;
     }

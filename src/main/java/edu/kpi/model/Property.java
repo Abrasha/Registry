@@ -12,7 +12,7 @@ public class Property {
         TRANSPORT, OTHER
     }
 
-    private int id;
+    private Integer id;
     private int serialNumber;
     private int registrationNumber;
     private PropertyType propertyType;
@@ -30,15 +30,15 @@ public class Property {
 
     @Id
     @GeneratedValue
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     public PropertyType getPropertyType() {
         return propertyType;
     }

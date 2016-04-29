@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Hmelmin
  */
 @Repository
-public interface PersonDAO extends JpaRepository<Person, Integer> {
+public interface PersonRepo extends JpaRepository<Person, Integer> {
     
 }
