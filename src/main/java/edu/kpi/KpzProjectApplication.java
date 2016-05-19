@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KpzProjectApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(KpzProjectApplication.class, args);
     }
+
 
 }
