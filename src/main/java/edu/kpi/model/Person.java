@@ -13,12 +13,12 @@ public class Person {
     }
 
     private Integer id;
+    private String name;
     private String code; // TODO
     private PersonType personType;
-    private String name;
     private String other;
 
-    public Person(String code, PersonType personType, String name, String other) {
+    public Person(String name, PersonType personType, String code, String other) {
         this.code = code;
         this.personType = personType;
         this.name = name;

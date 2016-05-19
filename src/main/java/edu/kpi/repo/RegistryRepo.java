@@ -1,4 +1,4 @@
-package edu.kpi.dao;
+package edu.kpi.repo;
 
 
 import edu.kpi.model.Registry;
@@ -12,6 +12,9 @@ import java.util.List;
 public interface RegistryRepo extends JpaRepository<Registry, Integer> {
 
     List<Registry> findByDate(LocalDate date);
+
+    List<Registry> findByPrincipalId(Integer id);
+
     Registry findOneBySeriesAndNumber(String series, Integer number);
 
 }

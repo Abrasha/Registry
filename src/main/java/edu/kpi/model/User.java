@@ -1,5 +1,8 @@
 package edu.kpi.model;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 /**
@@ -8,6 +11,8 @@ import javax.persistence.*;
 
 @Entity
 @Table
+@Component
+@Scope("session")
 public class User {
     public enum AccountType {
         ADMIN, USER
@@ -66,7 +71,7 @@ public class User {
         this.password = password;
     }
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     public AccountType getAccountType() {
         return accountType;
     }

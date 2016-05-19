@@ -1,25 +1,20 @@
-package edu.kpi;
+package edu.kpi.config;
 
 import edu.kpi.repo.*;
 import edu.kpi.model.*;
 import edu.kpi.service.UserService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = KpzProjectApplication.class)
-@Transactional
-@Rollback
-public class KpzProjectApplicationTests {
+/**
+ * @author Andrii Abramov on 19-May-16.
+ */
+//@Configuration TODO - use when we need data population
+public class DatabasePopulation {
 
     @Autowired
     private UserService userService;
@@ -38,20 +33,17 @@ public class KpzProjectApplicationTests {
     @Autowired
     private RegistryRepo registryRepo;
 
-
-    @Test
-    public void testCustomQueries() {
-
-        final User user1 = new User("login1", "pass1", User.AccountType.USER);
-        final User user2 = new User("login2", "pass2", User.AccountType.USER);
-        final User user3 = new User("login3", "pass3", User.AccountType.ADMIN);
-        final User user4 = new User("login4", "pass4", User.AccountType.USER);
-        final User user5 = new User("login5", "pass5", User.AccountType.ADMIN);
+    @PostConstruct
+    private void init() {
+        final User user1 = new User("login1", "asfsnkv", User.AccountType.USER);
+        final User user2 = new User("login2", "asfsnkv", User.AccountType.USER);
+        final User user3 = new User("login3", "asfsnkv", User.AccountType.ADMIN);
+        final User user4 = new User("login4", "asfsnkv", User.AccountType.USER);
+        final User user5 = new User("login5", "asfsnkv", User.AccountType.ADMIN);
 
         final Collection<User> addedUsers = userService.addUsers(
                 Arrays.asList(user1, user2, user3, user4, user5)
         );
-
 
         final Region region = new Region("Kieeeevska oblast");
         final Region savedRegion = regionRepo.save(region);

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>single register of attorney</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <h1 style="text-align: center;">Notary</h1>

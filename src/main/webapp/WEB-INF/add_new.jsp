@@ -1,9 +1,4 @@
-<!doctype html>
-<html>
-<head>
-	<title>single register of attorney</title>
-</head>
-<body>
+<%@include file="include/header.jsp"%>
 <h1 style="text-align: center;">Add New Attorney</h1>
 
 <p style="text-align: center;">Series:<input maxlength="10" name="Series" size="10" type="text" />&nbsp; &nbsp; &nbsp; &nbsp;Number:<input maxlength="20" name="Number" size="20" type="text" />&nbsp; &nbsp;Number in Actions List:<input maxlength="20" name="ActionListNumber" size="20" type="text" /></p>
@@ -20,6 +15,4 @@
 
 <p style="text-align: center;"><input name="Insert" type="button" value="Add" /></p>
 
-<p>&nbsp;</p>
-</body>
-</html>
+<%@include file="include/footer.jsp"%>

@@ -1,4 +1,4 @@
-package edu.kpi.dao;
+package edu.kpi.repo;
 
 
 import edu.kpi.model.User;
@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
 
-    User findOnByLogin(String login);
-
     List<User> findByAccountType(User.AccountType accountType);
+
+    User findOneByLogin(String login);
 
 }

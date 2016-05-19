@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
 <head>
-	<title>single register of attorneys</title>
+	<title>single register of attorney</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h1 style="text-align: center;">Attorneys associated with you:</h1>
+<h1 style="text-align: center;">Search results:</h1>
 
 <p style="text-align: center;">&nbsp;</p>
 
@@ -19,7 +20,9 @@
 			<th scope="col">notary</th>
 			<th scope="col">principal</th>
 			<th scope="col">confidants</th>
-			<th scope="col">property<br>number</th>
+			<th scope="col">property<br/>number</th>
+			<th scope="col">&nbsp; &nbsp;Full Wiew&nbsp;</th>
+			<th scope="col">&nbsp; &nbsp;Remove&nbsp;</th>
 		</tr>
 	</thead>
 </table>
