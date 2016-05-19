@@ -1,8 +1,9 @@
 package edu.kpi.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,8 +16,10 @@ public class Registry {
     private Integer number; // TODO
     private Integer numberInActionList;
     private String series;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate date;
-    private Date irrevocability; // null if not irrevocable // TODO !!
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    private LocalDate irrevocability; // null if not irrevocable // TODO !!
     private Notary notary;
     private Person principal;
     private List<Person> confidants;
@@ -70,11 +73,11 @@ public class Registry {
     }
 
     @Column
-    public Date getIrrevocability() {
+    public LocalDate getIrrevocability() {
         return irrevocability;
     }
 
-    public void setIrrevocability(Date irrevocability) {
+    public void setIrrevocability(LocalDate irrevocability) {
         this.irrevocability = irrevocability;
     }
 
@@ -98,7 +101,7 @@ public class Registry {
         this.principal = principal;
     }
 
-    @OneToMany
+    @ManyToMany
     public List<Person> getConfidants() {
         return confidants;
     }

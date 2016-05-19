@@ -1,8 +1,5 @@
 package edu.kpi.model;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 /**
@@ -11,18 +8,11 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@Component
-@Scope("session")
 public class User {
-    public enum AccountType {
-        ADMIN, USER
-    }
-
     private Integer id;
     private String login;
     private String password;
     private AccountType accountType;
-
     public User() {
     }
 
@@ -51,10 +41,13 @@ public class User {
         this.login = login;
     }
 
-
     @Column(nullable = false)
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -67,10 +60,6 @@ public class User {
                 '}';
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Enumerated(EnumType.ORDINAL)
     public AccountType getAccountType() {
         return accountType;
@@ -78,5 +67,9 @@ public class User {
 
     public void setAccountType(AccountType accountType) {
         this.accountType = accountType;
+    }
+
+    public enum AccountType {
+        ADMIN, USER
     }
 }
