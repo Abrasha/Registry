@@ -16,7 +16,7 @@ public class Registry {
     private Integer numberInActionList;
     private String series;
     private LocalDate date;
-    private Date irrevocability; // null if not irrevocable
+    private Date irrevocability; // null if not irrevocable // TODO !!
     private Notary notary;
     private Person principal;
     private List<Person> confidants;

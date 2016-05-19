@@ -1,6 +1,6 @@
 package edu.kpi.service;
 
-import edu.kpi.dao.PersonRepo;
+import edu.kpi.repo.PersonRepo;
 import edu.kpi.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
