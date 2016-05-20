@@ -5,7 +5,7 @@
     <form:form method="get" action="/search/by_date/res">
         <fmt:formatDate pattern="dd.MM.yyyy" var="fmt" value=""/>
         <label>Date of registry:
-            <input type="text" name="dateOfRegistry" value="<c:out value=" ${fmt}"/>"/>
+            <input type="text" name="dateOfRegistry" value="<c:out value="${fmt}"/>" placeholder="dd.MM.yyyy"/>
         </label>
         <input type="submit" value="Go">
     </form:form>

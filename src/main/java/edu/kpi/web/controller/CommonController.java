@@ -1,10 +1,12 @@
 package edu.kpi.web.controller;
 
+import edu.kpi.dto.NewRegistryDto;
 import edu.kpi.model.Person;
 import edu.kpi.model.Registry;
 import edu.kpi.model.User;
 import edu.kpi.repo.PersonRepo;
 import edu.kpi.repo.RegistryRepo;
+import edu.kpi.service.RegistryService;
 import edu.kpi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 /**
  * @author Andrii Abramov on 19-May-16.
@@ -29,6 +32,8 @@ public class CommonController {
     private PersonRepo personRepo;
     @Autowired
     private RegistryRepo registryRepo;
+    @Autowired
+    private RegistryService registryService;
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -38,7 +43,7 @@ public class CommonController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute User user, RedirectAttributes redirectAttributes, HttpServletResponse response) {
+    public String login(@ModelAttribute @Valid User user, RedirectAttributes redirectAttributes, HttpServletResponse response) {
 
         final User currentUser = userService.findByLogin(user.getLogin());
 
@@ -60,6 +65,11 @@ public class CommonController {
         return "person";
     }
 
+    @RequestMapping(value = "/new-registry", method = RequestMethod.GET)
+    public String addRegistry() {
+        return "add_new";
+    }
+
 
     @RequestMapping(value = "/registries/{id}")
     public String showRegistry(@PathVariable Integer id, Model model) {
@@ -67,6 +77,15 @@ public class CommonController {
         model.addAttribute("reg", registry);
         return "full_view";
     }
+
+
+    @RequestMapping(value = "/registries", method = RequestMethod.POST)
+    public String showRegistry(@ModelAttribute NewRegistryDto dto, Model model) {
+        final Registry addedRegistry = registryService.parseRegistry(dto);
+        model.addAttribute("reg", registryRepo.save(addedRegistry));
+        return "full_view";
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleError(HttpServletRequest req, Exception exception) {

@@ -1,5 +1,5 @@
 <%@include file="include/header.jsp" %>
-<%@include file="include/admin_nav.jsp"%>
+<%@include file="include/admin_nav.jsp" %>
 <h1 style="text-align: center;">Search results:</h1>
 
 <table class="table">
@@ -21,7 +21,9 @@
             <td>${reg.series}</td>
             <td>${reg.date}</td>
             <td>${reg.notary.organisation}</td>
-            <td>${reg.principal.name}</td>
+            <td>
+                <a href="/people/${reg.principal.id}">${reg.principal.name}</a>
+            </td>
             <td>
                 <ol>
                     <c:forEach var="conf" items="${reg.confidants}">

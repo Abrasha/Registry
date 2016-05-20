@@ -1,6 +1,7 @@
 package edu.kpi.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Abrasha on 31-Mar-16.
@@ -10,7 +11,9 @@ import javax.persistence.*;
 @Table
 public class User {
     private Integer id;
+    @NotNull
     private String login;
+    @NotNull
     private String password;
     private AccountType accountType;
     public User() {

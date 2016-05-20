@@ -16,6 +16,9 @@
             <li>
                 <a href="/registries/">All</a>
             </li>
+            <li>
+                <a href="/new-registry">Add new</a>
+            </li>
             <%--<li><a href="/registries/new">Add new</a></li>--%>
         </ul>
     </div>
