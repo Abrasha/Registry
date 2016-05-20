@@ -66,7 +66,10 @@ public class CommonController {
     public String login(@ModelAttribute @Valid User user, RedirectAttributes redirectAttributes, HttpServletResponse response) {
 
         final User currentUser = userService.findByLogin(user.getLogin());
-
+        if(currentUser==null)
+        {
+            return "redirect:";
+        }
 
         final String usersUrl = "redirect:/" +
                 (currentUser.getAccountType() == User.AccountType.USER ?
