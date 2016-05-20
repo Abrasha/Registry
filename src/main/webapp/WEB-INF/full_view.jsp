@@ -1,29 +1,42 @@
 <%@include file="include/header.jsp" %>
-<h1 style="text-align: center;">Full View</h1>
+<h1>Registry details</h1>
 
-<p style="text-align: center;">Series:<input maxlength="10" name="Series" size="10" type="text"/>&nbsp; &nbsp; &nbsp;
-    &nbsp;Number:<input maxlength="20" name="Number" size="20" type="text"/>&nbsp; &nbsp;Number in Actions List:<input
-            maxlength="20" name="ActionListNumber" size="20" type="text"/></p>
+<dl class="dl-horizontal">
+    <dt>Number</dt>
+    <dd>${reg.number}</dd>
+    <dt>Number in action list</dt>
+    <dd>${reg.numberInActionList}</dd>
+    <dt>Series</dt>
+    <dd>${reg.series}</dd>
+    <dt>Date</dt>
+    <dd>${reg.date}</dd>
+    <dt>Irrevocability</dt>
+    <dd>
+        <c:if test="${empty reg.irrevocability}">
+            none
+        </c:if>
+        <c:if test="${not empty reg.irrevocability}">
+            ${reg}
+        </c:if>
+    </dd>
+    <dt>Notary</dt>
+    <dd>${reg.notary.organisation}</dd>
+    <dt>Principal</dt>
+    <dd><a href="/people/${reg.principal.id}">${reg.principal.name}</a></dd>
+    <dt>Confidants</dt>
+    <dd>
+        <ol>
+            <c:forEach var="conf" items="${reg.confidants}">
+                <li>
+                    <a href="/people/${conf.id}">${conf.name}</a>
+                </li>
+            </c:forEach>
+        </ol>
+    </dd>
+    <dt>Property</dt>
+    <dd>${reg.property.description}</dd>
+    <dt>other</dt>
+    <dd>${reg.other}</dd>
+</dl>
 
-<p style="text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp; Principal:<input maxlength="200" name="Principal" size="75"
-                                                                            type="text"/></p>
-
-<p style="text-align: center;">&nbsp; &nbsp; &nbsp;Confidants:<textarea cols="75" name="Confidants" rows="5"></textarea>
-</p>
-
-<p style="text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Notary:<input maxlength="100" name="Notary"
-                                                                                       size="75" type="text"/></p>
-
-<p style="text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Property:&nbsp;<input maxlength="150" name="Property"
-                                                                                      size="75" type="text"/>&nbsp;
-    &nbsp;</p>
-
-<p style="text-align: center;">Irrevocability: <input maxlength="20" name="Irrevocability" size="20" type="text"/>&nbsp;
-</p>
-
-<p style="text-align: center;">&nbsp;</p>
-
-<p style="text-align: center;">Description:<textarea cols="100" name="Description" rows="10"></textarea></p>
-
-<p style="text-align: center;">&nbsp;</p>
 <%@include file="include/footer.jsp" %>

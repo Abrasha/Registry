@@ -1,8 +1,10 @@
 package edu.kpi.web.controller;
 
 import edu.kpi.model.Person;
+import edu.kpi.model.Registry;
 import edu.kpi.model.User;
 import edu.kpi.repo.PersonRepo;
+import edu.kpi.repo.RegistryRepo;
 import edu.kpi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ public class CommonController {
     private UserService userService;
     @Autowired
     private PersonRepo personRepo;
+    @Autowired
+    private RegistryRepo registryRepo;
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -54,6 +58,14 @@ public class CommonController {
         Person person = personRepo.findOne(id); // TODO check if null
         model.addAttribute("person", person);
         return "person";
+    }
+
+
+    @RequestMapping(value = "/registries/{id}")
+    public String showRegistry(@PathVariable Integer id, Model model) {
+        Registry registry = registryRepo.findOne(id); // TODO check if null
+        model.addAttribute("reg", registry);
+        return "full_view";
     }
 
     @ExceptionHandler(Exception.class)

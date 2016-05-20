@@ -1,6 +1,6 @@
 package edu.kpi.service;
 
-//@Service
+//@Service TODO
 public class RegistryService {
 
 

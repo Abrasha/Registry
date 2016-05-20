@@ -15,6 +15,8 @@ public interface RegistryRepo extends JpaRepository<Registry, Integer> {
 
     List<Registry> findByPrincipalId(Integer id);
 
-    Registry findOneBySeriesAndNumber(String series, Integer number);
+    List<Registry> findByPrincipalNameIgnoreCaseContaining(String principalName);
+
+    Registry findOneBySeries(String series);
 
 }
