@@ -10,21 +10,19 @@
         <label>Irrevocability:
             <input type="text" name="irrevocabilty" value="<c:out value="${fmt}"/>"/>
         </label>
-        <form:select path="principal" multiple="true" >
-            <form:option value="NONE"> --SELECT--</form:option>
-            <form:options items="${people}"></form:options>
+        <form:select path="principal" items="${people}" itemValue="id" itemLabel="name">
         </form:select>
         <input name="notaryIDN" placeholder="notary idn...">
-        <form:select path="confs">
-            <form:option value="NONE"> --SELECT--</form:option>
-            <form:options items="${people}"></form:options>
-        </form:select>
+        <%--<form:select path="confs" itemValue="">--%>
+        <%--<form:option value="NONE"> --SELECT--</form:option>--%>
+        <%--<form:options items="${people}" itemLabel="name"></form:options>--%>
+        <%--</form:select>--%>
         <input name="propertyRegNumber" placeholder="property reg number...">
 
-        <form:select path="property">
-            <form:option value="NONE"> --SELECT--</form:option>
-            <form:options items="${properties}"></form:options>
-        </form:select>
+        <%--<form:select path="property">--%>
+        <%--<form:option value="NONE"> --SELECT--</form:option>--%>
+        <%--<form:options items="${properties}"></form:options>--%>
+        <%--</form:select>--%>
         <input name="other" placeholder="description...">
         <input type="submit" value="Add">
     </form:form>

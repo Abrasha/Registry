@@ -13,6 +13,7 @@ import edu.kpi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -21,12 +22,25 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
 
 /**
  * @author Andrii Abramov on 19-May-16.
  */
 @Controller
 public class CommonController {
+
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(Person.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException {
+                this.setValue(personRepo.findOne(Integer.valueOf(text)));
+            }
+        });
+
+    }
 
     @Autowired
     private UserService userService;
@@ -90,7 +104,7 @@ public class CommonController {
 
 
     @RequestMapping(value = "/registries", method = RequestMethod.POST)
-    public String showRegistry(@ModelAttribute NewRegistryDto dto, Model model) {
+    public String showRegistry(@ModelAttribute("newReg") NewRegistryDto dto, Model model) {
         final Registry addedRegistry = registryService.parseRegistry(dto);
         model.addAttribute("reg", registryRepo.save(addedRegistry));
         return "full_view";

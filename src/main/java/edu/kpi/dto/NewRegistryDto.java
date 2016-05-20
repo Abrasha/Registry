@@ -6,7 +6,7 @@ import edu.kpi.model.Property;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author Andrii Abramov on 20-May-16.
@@ -21,9 +21,8 @@ public class NewRegistryDto {
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate irrevocabilty; // null if not irrevocable // TODO !!
     private Person principal;
-    private List<Person> confs;
+    private Set<Person> confs;
     private Notary notary;
-    private String confIDNs;
     private Property property;
     private String other;
 
@@ -75,11 +74,11 @@ public class NewRegistryDto {
         this.principal = principal;
     }
 
-    public List<Person> getConfs() {
+    public Set<Person> getConfs() {
         return confs;
     }
 
-    public void setConfs(List<Person> confs) {
+    public void setConfs(Set<Person> confs) {
         this.confs = confs;
     }
 
@@ -97,14 +96,6 @@ public class NewRegistryDto {
 
     public void setProperty(Property property) {
         this.property = property;
-    }
-
-    public String getConfIDNs() {
-        return confIDNs;
-    }
-
-    public void setConfIDNs(String confIDNs) {
-        this.confIDNs = confIDNs;
     }
 
     public String getOther() {

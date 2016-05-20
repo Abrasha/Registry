@@ -1,7 +1,6 @@
 package edu.kpi.service;
 
 import edu.kpi.dto.NewRegistryDto;
-import edu.kpi.model.Person;
 import edu.kpi.model.Registry;
 import edu.kpi.repo.NotaryRepo;
 import edu.kpi.repo.PersonRepo;
@@ -11,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,12 +35,7 @@ public class RegistryService {
         registry.setDate(LocalDate.now());
         registry.setOther(dto.getOther());
         registry.setPrincipal(dto.getPrincipal());
-
-        final List<Person> confs = Pattern.compile(",").splitAsStream(dto.getConfIDNs())
-                .map(idn -> personRepo.findOnByCode(idn))
-                .collect(Collectors.toList());
-
-        registry.setConfidants(confs);
+        registry.setConfidants(dto.getConfs().stream().collect(Collectors.toList()));
         registry.setNotary(dto.getNotary());
         registry.setProperty(dto.getProperty());
 
