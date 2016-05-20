@@ -1,4 +1,5 @@
 <%@include file="include/header.jsp" %>
+<%@include file="include/admin_nav.jsp" %>
 <h1>Registry details</h1>
 
 <dl class="dl-horizontal">
@@ -22,7 +23,9 @@
     <dt>Notary</dt>
     <dd>${reg.notary.organisation}</dd>
     <dt>Principal</dt>
-    <dd><a href="/people/${reg.principal.id}">${reg.principal.name}</a></dd>
+    <dd>
+        <a href="/people/${reg.principal.id}">${reg.principal.name}</a>
+    </dd>
     <dt>Confidants</dt>
     <dd>
         <ol>

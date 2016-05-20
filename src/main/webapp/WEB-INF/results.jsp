@@ -1,6 +1,6 @@
 <%@include file="include/header.jsp" %>
 <%@include file="include/admin_nav.jsp" %>
-<h1 style="text-align: center;">Search results:</h1>
+<h1>Search results:</h1>
 
 <table class="table">
     <caption>Search results:</caption>
@@ -12,6 +12,7 @@
         <th>Notary</th>
         <th>Principal</th>
         <th>Confidants</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -32,6 +33,9 @@
                         </li>
                     </c:forEach>
                 </ol>
+            </td>
+            <td>
+                <a href="/registries/${reg.id}">Open</a>
             </td>
         </tr>
     </c:forEach>

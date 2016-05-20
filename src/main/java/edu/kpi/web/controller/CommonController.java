@@ -4,7 +4,9 @@ import edu.kpi.dto.NewRegistryDto;
 import edu.kpi.model.Person;
 import edu.kpi.model.Registry;
 import edu.kpi.model.User;
+import edu.kpi.repo.NotaryRepo;
 import edu.kpi.repo.PersonRepo;
+import edu.kpi.repo.PropertyRepo;
 import edu.kpi.repo.RegistryRepo;
 import edu.kpi.service.RegistryService;
 import edu.kpi.service.UserService;
@@ -31,7 +33,11 @@ public class CommonController {
     @Autowired
     private PersonRepo personRepo;
     @Autowired
+    private NotaryRepo notaryRepo;
+    @Autowired
     private RegistryRepo registryRepo;
+    @Autowired
+    private PropertyRepo propertyRepo;
     @Autowired
     private RegistryService registryService;
 
@@ -66,7 +72,11 @@ public class CommonController {
     }
 
     @RequestMapping(value = "/new-registry", method = RequestMethod.GET)
-    public String addRegistry() {
+    public String addRegistry(Model model) {
+        model.addAttribute("newReg", new Registry());
+        model.addAttribute("people", personRepo.findAll());
+        model.addAttribute("notaries", notaryRepo.findAll());
+        model.addAttribute("properties", propertyRepo.findAll());
         return "add_new";
     }
 

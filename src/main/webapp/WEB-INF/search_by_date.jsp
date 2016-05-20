@@ -1,5 +1,5 @@
 <%@include file="include/header.jsp" %>
-<%@include file="include/admin_nav.jsp"%>
+<%@include file="include/admin_nav.jsp" %>
 <h1>Search registry by date:</h1>
 <div class="form-group">
     <form:form method="get" action="/search/by_date/res">

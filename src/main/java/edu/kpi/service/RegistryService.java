@@ -37,15 +37,15 @@ public class RegistryService {
         registry.setIrrevocability(dto.getIrrevocabilty());
         registry.setDate(LocalDate.now());
         registry.setOther(dto.getOther());
-        registry.setPrincipal(personRepo.findOnByCode(dto.getPrincipalIDN()));
+        registry.setPrincipal(dto.getPrincipal());
 
         final List<Person> confs = Pattern.compile(",").splitAsStream(dto.getConfIDNs())
                 .map(idn -> personRepo.findOnByCode(idn))
                 .collect(Collectors.toList());
 
         registry.setConfidants(confs);
-        registry.setNotary(notaryRepo.findOne(dto.getNotaryIDN()));
-        registry.setProperty(propertyRepo.findOneByRegistrationNumber(dto.getPropertyRegNumber()));
+        registry.setNotary(dto.getNotary());
+        registry.setProperty(dto.getProperty());
 
 
         return registry;
