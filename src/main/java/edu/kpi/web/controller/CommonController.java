@@ -39,8 +39,8 @@ public class CommonController {
                 this.setValue(personRepo.findOne(Integer.valueOf(text)));
             }
         });
-
     }
+
 
     @Autowired
     private UserService userService;
@@ -86,12 +86,13 @@ public class CommonController {
     }
 
     @RequestMapping(value = "/new-registry", method = RequestMethod.GET)
-    public String addRegistry(Model model) {
-        model.addAttribute("newReg", new Registry());
-        model.addAttribute("people", personRepo.findAll());
-        model.addAttribute("notaries", notaryRepo.findAll());
-        model.addAttribute("properties", propertyRepo.findAll());
-        return "add_new";
+    public ModelAndView addRegistry(Model model) {
+        final ModelAndView mav = new ModelAndView("add_new");
+        mav.addObject("registry", new NewRegistryDto());
+        mav.addObject("people", personRepo.findAll());
+        mav.addObject("notaries", notaryRepo.findAll());
+        mav.addObject("properties", propertyRepo.findAll());
+        return mav;
     }
 
 
@@ -104,18 +105,19 @@ public class CommonController {
 
 
     @RequestMapping(value = "/registries", method = RequestMethod.POST)
-    public String showRegistry(@ModelAttribute("newReg") NewRegistryDto dto, Model model) {
+    public String addNew(@ModelAttribute("registry") NewRegistryDto dto, Model model) {
         final Registry addedRegistry = registryService.parseRegistry(dto);
         model.addAttribute("reg", registryRepo.save(addedRegistry));
         return "full_view";
     }
 
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler({Exception.class, RuntimeException.class})
     public ModelAndView handleError(HttpServletRequest req, Exception exception) {
-
+        System.out.println(exception.getMessage());
+        System.out.println(exception);
+        exception.printStackTrace();
         final ModelAndView mav = new ModelAndView("error");
-        mav.addObject("exception", exception);
         mav.addObject("message", exception.getMessage());
         mav.addObject("url", req.getRequestURL());
         mav.addObject("title", "ERROR");

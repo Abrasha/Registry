@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonRepo extends JpaRepository<Person, Integer> {
 
-    Person findOnByCode(String code);
+    Person findOneByCode(String code);
+    Person findOneByNameContains(String name);
 
 }

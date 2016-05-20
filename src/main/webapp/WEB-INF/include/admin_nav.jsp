@@ -8,7 +8,7 @@
                 <a href="/search/by_date">Search by date</a>
             </li>
             <li>
-                <a href="/search/by_principal">Search by principal</a>
+                <a href="/search/by_principal">Search by principalName</a>
             </li>
             <li>
                 <a href="/search/by_series">Search by serial</a>

@@ -1,8 +1,5 @@
 package edu.kpi.dto;
 
-import edu.kpi.model.Notary;
-import edu.kpi.model.Person;
-import edu.kpi.model.Property;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -20,10 +17,10 @@ public class NewRegistryDto {
     private LocalDate date;
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate irrevocabilty; // null if not irrevocable // TODO !!
-    private Person principal;
-    private Set<Person> confs;
-    private Notary notary;
-    private Property property;
+    private String principalName;
+    private Set<String> confs;
+    private Integer notaryId;
+    private Integer propertyRegNumber;
     private String other;
 
     public Integer getNumber() {
@@ -66,36 +63,36 @@ public class NewRegistryDto {
         this.irrevocabilty = irrevocabilty;
     }
 
-    public Person getPrincipal() {
-        return principal;
+    public String getPrincipalName() {
+        return principalName;
     }
 
-    public void setPrincipal(Person principal) {
-        this.principal = principal;
+    public void setPrincipalName(String principalName) {
+        this.principalName = principalName;
     }
 
-    public Set<Person> getConfs() {
+    public Set<String> getConfs() {
         return confs;
     }
 
-    public void setConfs(Set<Person> confs) {
+    public void setConfs(Set<String> confs) {
         this.confs = confs;
     }
 
-    public Notary getNotary() {
-        return notary;
+    public Integer getNotaryId() {
+        return notaryId;
     }
 
-    public void setNotary(Notary notary) {
-        this.notary = notary;
+    public void setNotaryId(Integer notaryId) {
+        this.notaryId = notaryId;
     }
 
-    public Property getProperty() {
-        return property;
+    public Integer getPropertyRegNumber() {
+        return propertyRegNumber;
     }
 
-    public void setProperty(Property property) {
-        this.property = property;
+    public void setPropertyRegNumber(Integer propertyRegNumber) {
+        this.propertyRegNumber = propertyRegNumber;
     }
 
     public String getOther() {

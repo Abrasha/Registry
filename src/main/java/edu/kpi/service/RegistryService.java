@@ -34,10 +34,10 @@ public class RegistryService {
         registry.setIrrevocability(dto.getIrrevocabilty());
         registry.setDate(LocalDate.now());
         registry.setOther(dto.getOther());
-        registry.setPrincipal(dto.getPrincipal());
-        registry.setConfidants(dto.getConfs().stream().collect(Collectors.toList()));
-        registry.setNotary(dto.getNotary());
-        registry.setProperty(dto.getProperty());
+        registry.setPrincipal(personRepo.findOneByNameContains(dto.getPrincipalName()));
+        registry.setConfidants(dto.getConfs().stream().map(e -> personRepo.findOneByNameContains(e)).collect(Collectors.toList()));
+        registry.setNotary(notaryRepo.findOne(dto.getNotaryId()));
+        registry.setProperty(propertyRepo.findOneByRegistrationNumber(dto.getPropertyRegNumber()));
 
 
         return registry;

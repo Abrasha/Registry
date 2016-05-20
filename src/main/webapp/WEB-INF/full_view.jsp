@@ -17,7 +17,7 @@
             none
         </c:if>
         <c:if test="${not empty reg.irrevocability}">
-            ${reg}
+            ${reg.irrevocability}
         </c:if>
     </dd>
     <dt>Notary</dt>
